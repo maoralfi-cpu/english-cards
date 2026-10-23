@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>אנגלית לילדים ⭐</title>
+<style>
+:root {
+--p: #4A90E2;
+--bg: #F0F4F8;
+--s: #2ED573;
+--text: #2D3436;
+}
+
+html, body {
+height: 100vh;
+overflow: hidden;
+}
+
+body {
+font-family: -apple-system, BlinkMacSystemFont, 'Assistant', sans-serif;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: space-between;
+margin: 0;
+background-color: var(--bg);
+padding: 10px 15px;
+box-sizing: border-box;
+color: var(--text);
+-webkit-tap-highlight-color: transparent;
+}
+
+/* Header Section */
+.header-container {
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 100%;
+max-width: 360px;
+gap: 8px;
+}
+
+.stars-container {
+display: flex;
+gap: 10px;
+font-size: 24px;
+}
+.star {
+opacity: 0.25;
+transition: all 0.3s ease;
+transform: scale(0.85);
+filter: grayscale(1);
+}
+.star.active {
+opacity: 1;
+transform: scale(1.3);
+filter: grayscale(0);
+}
+
+.progress-container {
+width: 100%;
+height: 10px;
+background: rgba(0,0,0,0.06);
+border-radius: 20px;
+overflow: hidden;
+}
+.progress-bar {
+height: 100%;
+background: var(--s);
+width: 0%;
+transition: width 0.3s ease;
+border-radius: 20px;
+}
+
+/* Row 1: List Selector */
+.list-selector {
+display: flex;
+width: 100%;
+background: rgba(0,0,0,0.05);
+border-radius: 12px;
+padding: 3px;
+box-sizing: border-box;
+gap: 4px;
+}
+.list-btn {
+flex: 1;
+padding: 6px 4px;
+border: none;
+background: transparent;
+font-family: inherit;
+font-weight: 800;
+font-size: 13px;
+border-radius: 10px;
+cursor: pointer;
+color: #636e72;
+transition: all 0.2s;
+white-space: nowrap;
+}
+.list-btn.active {
+background: white;
+color: var(--p);
+box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* Row 2: Action Tools */
+.tools-row {
+display: flex;
+width: 100%;
+gap: 8px;
+}
+
+.btn-tool {
+background: white;
+border: 1px solid rgba(0,0,0,0.08);
+border-radius: 12px;
+padding: 6px 10px;
+font-size: 13px;
+font-weight: 700;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 5px;
+cursor: pointer;
+box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+color: var(--text);
+white-space: nowrap;
+flex: 1;
+}
+
+/* Card Section */
+.card-container {
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 100%;
+max-width: 360px;
+margin: 4px 0;
+}
+
+.card {
+width: 100%;
+height: 230px;
+background: white;
+border-radius: 28px;
+box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+cursor: pointer;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+box-sizing: border-box;
+padding: 20px;
+border: 4px solid white;
+gap: 12px;
+}
+
+.card.is-back {
+background: var(--p);
+color: white;
+}
+
+.card-title {
+font-size: 38px;
+font-weight: 800;
+line-height: 1.1;
+text-align: center;
+}
+
+.card-emoji {
+font-size: 65px;
+line-height: 1;
+user-select: none;
+}
+
+.flip-hint {
+font-size: 13px;
+color: #a4b0be;
+margin-top: 6px;
+font-weight: 700;
+}
+
+/* Footer Navigation Section */
+.footer-container {
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 100%;
+max-width: 360px;
+gap: 6px;
+margin-bottom: 5px;
+}
+
+.main-nav {
+display: flex;
+gap: 10px;
+width: 100%;
+align-items: center;
+justify-content: space-between;
+}
+.btn-nav {
+flex: 1;
+padding: 12px 10px;
+font-size: 18px;
+border-radius: 18px;
+border: none;
+font-weight: 800;
+cursor: pointer;
+box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+background: var(--p);
+color: white;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 6px;
+}
+
+.btn-audio {
+background: white;
+color: var(--p);
+border: 2px solid var(--p);
+border-radius: 18px;
+padding: 10px 16px;
+font-size: 22px;
+cursor: pointer;
+box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+#cnt {
+font-weight: 800;
+color: #a4b0be;
+font-size: 16px;
+}
+
+/* Milestone Overlay */
+#msg-overlay {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.4);
+display: none;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+z-index: 2000;
+text-align: center;
+}
+.msg-box {
+background: white;
+padding: 30px 40px;
+border-radius: 30px;
+box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+#msg-text {
+font-size: 28px;
+font-weight: 800;
+color: var(--p);
+margin-bottom: 10px;
+}
+
+/* Confetti */
+.confetti {
+position: fixed;
+width: 10px;
+height: 10px;
+top: -10px;
+border-radius: 2px;
+opacity: 0;
+animation: fall 3s infinite ease-out;
+z-index: 1000;
+}
+@keyframes fall {
+0% { top: -10px; transform: translateX(0px) rotate(0deg); opacity: 1; }
+100% { top: 100vh; transform: translateX(120px) rotate(720deg); opacity: 0; }
+}
+</style>
+</head>
+<body>
+
+<div id="msg-overlay" onclick="closeMilestone()">
+<div class="msg-box">
+<div id="msg-text">כל הכבוד! 🌟</div>
+<div style="font-size: 18px; color: #666;">איזו אליפות! לחצי/י להמשך</div>
+</div>
+</div>
+
+<!-- Header Section -->
+<div class="header-container">
+<div class="stars-container">
+<span class="star" id="s1">⭐</span>
+<span class="star" id="s2">⭐</span>
+<span class="star" id="s3">⭐</span>
+<span class="star" id="s4">⭐</span>
+</div>
+<div class="progress-container">
+<div class="progress-bar" id="pb"></div>
+</div>
+
+<!-- Row 1: List Selector -->
+<div class="list-selector">
+<button class="list-btn active" id="btn-list-all" onclick="setListType('all')">📚 הכל (26)</button>
+<button class="list-btn" id="btn-list-new" onclick="setListType('new')">✨ חדשות (12)</button>
+</div>
+
+<!-- Row 2: Action Controls -->
+<div class="tools-row">
+<button class="btn-tool" id="toggle-mode-btn" onclick="toggleMode()">🇬🇧 🔄 🇮🇱 <span id="mode-label">אנגלית תחילה</span></button>
+<button class="btn-tool" onclick="shuffleWords()">🔀 ערבוב</button>
+</div>
+</div>
+
+<!-- Focused Card Section -->
+<div class="card-container">
+<div class="card" id="c" onclick="flipCard()">
+<div id="card-emoji" class="card-emoji">👶</div>
+<div id="card-text" class="card-title">baby</div>
+</div>
+<div class="flip-hint">לחצי/י על הכרטיסייה כדי להפוך 🔄</div>
+</div>
+
+<!-- Footer Navigation Section -->
+<div class="footer-container">
+<div class="main-nav">
+<button class="btn-nav" onclick="changeCard(-1)">➡️ קודם</button>
+<button class="btn-audio" onclick="speak()" title="הקרא מילה">🔊</button>
+<button class="btn-nav" onclick="changeCard(1)">הבא ⬅️</button>
+</div>
+<div id="cnt">1 / 26</div>
+</div>
+
+<div id="confetti-wrapper"></div>
+
+<script>
+const allWords = [
+{e:"baby", h:"תינוק", icon:"👶", isNew:true},
+{e:"box", h:"קופסא", icon:"📦", isNew:true},
+{e:"bag", h:"תיק", icon:"🎒", isNew:true},
+{e:"big", h:"גדול", icon:"🐘", isNew:true},
+{e:"book", h:"ספר", icon:"📖", isNew:true},
+{e:"small", h:"קטן", icon:"🐭", isNew:true},
+{e:"notebook", h:"מחברת", icon:"📓", isNew:true},
+{e:"computer", h:"מחשב", icon:"💻", isNew:true},
+{e:"nose", h:"אף", icon:"👃", isNew:true},
+{e:"sister", h:"אחות", icon:"👧", isNew:true},
+{e:"mouth", h:"פה", icon:"👄", isNew:true},
+{e:"brother", h:"אח", icon:"👦", isNew:true},
+{e:"eleven", h:"אחת עשרה", icon:"1️⃣1️⃣", isNew:false},
+{e:"twelve", h:"שתים עשרה", icon:"1️⃣2️⃣", isNew:false},
+{e:"boy", h:"ילד", icon:"👦", isNew:false},
+{e:"girl", h:"ילדה", icon:"👧", isNew:false},
+{e:"black", h:"שחור", icon:"⬛", isNew:false},
+{e:"white", h:"לבן", icon:"⬜", isNew:false},
+{e:"red", h:"אדום", icon:"🟥", isNew:false},
+{e:"blue", h:"כחול", icon:"🟦", isNew:false},
+{e:"green", h:"ירוק", icon:"🟩", isNew:false},
+{e:"yellow", h:"צהוב", icon:"🟨", isNew:false},
+{e:"orange", h:"כתום", icon:"🟧", isNew:false},
+{e:"apple", h:"תפוח", icon:"🍎", isNew:false},
+{e:"man", h:"איש / גבר", icon:"🧔", isNew:false},
+{e:"woman", h:"אישה", icon:"👩", isNew:false}
+];
+
+let activeWords = [...allWords];
+let currentIndex = 0;
+let wordsSeen = new Set();
+let isHebrewFirst = false;
+let isFlipped = false;
+
+function setListType(type) {
+document.getElementById('btn-list-all').classList.toggle('active', type === 'all');
+document.getElementById('btn-list-new').classList.toggle('active', type === 'new');
+
+if (type === 'new') {
+activeWords = allWords.filter(w => w.isNew);
+} else {
+activeWords = [...allWords];
+}
+
+currentIndex = 0;
+wordsSeen.clear();
+document.querySelectorAll('.star').forEach(s => s.classList.remove('active'));
+stopCelebrate();
+updateDisplay();
+}
+
+function toggleMode() {
+isHebrewFirst = !isHebrewFirst;
+const btn = document.getElementById('toggle-mode-btn');
+const label = document.getElementById('mode-label');
+if (isHebrewFirst) {
+btn.style.background = '#e74c3c';
+btn.style.color = 'white';
+label.innerText = 'עברית תחילה';
+} else {
+btn.style.background = 'white';
+btn.style.color = 'var(--text)';
+label.innerText = 'אנגלית תחילה';
+}
+updateDisplay();
+}
+
+function flipCard() {
+isFlipped = !isFlipped;
+renderCardContent();
+}
+
+function renderCardContent() {
+const card = document.getElementById('c');
+const textEl = document.getElementById('card-text');
+const emojiEl = document.getElementById('card-emoji');
+const currentWord = activeWords[currentIndex];
+
+emojiEl.innerText = currentWord.icon;
+const showHebrew = (isHebrewFirst && !isFlipped) || (!isHebrewFirst && isFlipped);
+
+if (showHebrew) {
+textEl.innerText = currentWord.h;
+card.classList.add('is-back');
+} else {
+textEl.innerText = currentWord.e;
+card.classList.remove('is-back');
+}
+}
+
+function updateDisplay() {
+isFlipped = false;
+wordsSeen.add(currentIndex);
+renderCardContent();
+
+document.getElementById('cnt').innerText = (currentIndex + 1) + " / " + activeWords.length;
+const progress = ((currentIndex + 1) / activeWords.length) * 100;
+document.getElementById('pb').style.width = progress + "%";
+updateStars();
+}
+
+function updateStars() {
+const count = currentIndex + 1;
+const step = activeWords.length / 4;
+if (count >= step) document.getElementById('s1').classList.add('active');
+if (count >= step * 2) document.getElementById('s2').classList.add('active');
+if (count >= step * 3) document.getElementById('s3').classList.add('active');
+if (count >= activeWords.length) document.getElementById('s4').classList.add('active');
+}
+
+function triggerMilestone(hebrew, english) {
+document.getElementById('msg-text').innerText = hebrew;
+document.getElementById('msg-overlay').style.display = 'flex';
+if ('speechSynthesis' in window) {
+window.speechSynthesis.cancel();
+const msg = new SpeechSynthesisUtterance(english);
+msg.lang = 'en-US';
+msg.rate = 0.85;
+window.speechSynthesis.speak(msg);
+}
+}
+
+function closeMilestone() {
+document.getElementById('msg-overlay').style.display = 'none';
+}
+
+function changeCard(step) {
+if (step === 1) {
+const currentNum = currentIndex + 1;
+const milestone = Math.floor(activeWords.length / 2);
+if (currentNum === milestone) {
+triggerMilestone("עברת חצי הדרך! אליפות! ⭐", "Amazing! You are doing great!");
+}
+if (currentIndex === activeWords.length - 1 && wordsSeen.size === activeWords.length) {
+triggerMilestone("וואו! סיימת את כל המילים ברשימה! 👑", "Congratulations! You finished everything!");
+celebrate();
+}
+}
+currentIndex = (currentIndex + step + activeWords.length) % activeWords.length;
+updateDisplay();
+}
+
+function shuffleWords() {
+activeWords.sort(function() { return Math.random() - 0.5; });
+currentIndex = 0;
+wordsSeen.clear();
+document.querySelectorAll('.star').forEach(function(s) { s.classList.remove('active'); });
+stopCelebrate();
+updateDisplay();
+}
+
+function speak() {
+if ('speechSynthesis' in window) {
+window.speechSynthesis.cancel();
+const wordToSpeak = activeWords[currentIndex].e;
+const msg = new SpeechSynthesisUtterance(wordToSpeak);
+msg.lang = 'en-US';
+msg.rate = 0.85;
+window.speechSynthesis.speak(msg);
+}
+}
+
+function celebrate() {
+const wrapper = document.getElementById('confetti-wrapper');
+const colors = ['#FF6B6B', '#4ECDC4', '#FFE66D', '#2ED573', '#9B59B6'];
+for (let i = 0; i < 120; i++) {
+const confetti = document.createElement('div');
+confetti.className = 'confetti';
+confetti.style.left = Math.random() * 100 + 'vw';
+confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+confetti.style.animationDelay = Math.random() * 3 + 's';
+confetti.style.width = confetti.style.height = (Math.random() * 8 + 6) + 'px';
+wrapper.appendChild(confetti);
+}
+setTimeout(stopCelebrate, 7000);
+}
+
+function stopCelebrate() {
+document.getElementById('confetti-wrapper').innerHTML = '';
+}
+</script>
+</body>
+</html>
