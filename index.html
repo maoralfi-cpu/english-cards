@@ -291,52 +291,53 @@ z-index: 1000;
 
 <!-- Header Section -->
 <div class="header-container">
-<div class="stars-container">
-<span class="star" id="s1">⭐</span>
-<span class="star" id="s2">⭐</span>
-<span class="star" id="s3">⭐</span>
-<span class="star" id="s4">⭐</span>
-</div>
-<div class="progress-container">
-<div class="progress-bar" id="pb"></div>
-</div>
+    <div class="stars-container">
+        <span class="star" id="s1">⭐</span>
+        <span class="star" id="s2">⭐</span>
+        <span class="star" id="s3">⭐</span>
+        <span class="star" id="s4">⭐</span>
+    </div>
+    <div class="progress-container">
+        <div class="progress-bar" id="pb"></div>
+    </div>
+    
+    <!-- Row 1: List Selector -->
+    <div class="list-selector">
+        <button class="list-btn active" id="btn-list-all" onclick="setListType('all')">📚 הכל (32)</button>
+        <button class="list-btn" id="btn-list-new" onclick="setListType('new')">✨ חדשות (18)</button>
+    </div>
 
-<!-- Row 1: List Selector -->
-<div class="list-selector">
-<button class="list-btn active" id="btn-list-all" onclick="setListType('all')">📚 הכל (26)</button>
-<button class="list-btn" id="btn-list-new" onclick="setListType('new')">✨ חדשות (12)</button>
-</div>
-
-<!-- Row 2: Action Controls -->
-<div class="tools-row">
-<button class="btn-tool" id="toggle-mode-btn" onclick="toggleMode()">🇬🇧 🔄 🇮🇱 <span id="mode-label">אנגלית תחילה</span></button>
-<button class="btn-tool" onclick="shuffleWords()">🔀 ערבוב</button>
-</div>
+    <!-- Row 2: Action Controls -->
+    <div class="tools-row">
+        <button class="btn-tool" id="toggle-mode-btn" onclick="toggleMode()">🇬🇧 🔄 🇮🇱 <span id="mode-label">אנגלית תחילה</span></button>
+        <button class="btn-tool" onclick="shuffleWords()">🔀 ערבוב</button>
+    </div>
 </div>
 
 <!-- Focused Card Section -->
 <div class="card-container">
-<div class="card" id="c" onclick="flipCard()">
-<div id="card-emoji" class="card-emoji">👶</div>
-<div id="card-text" class="card-title">baby</div>
-</div>
-<div class="flip-hint">לחצי/י על הכרטיסייה כדי להפוך 🔄</div>
+    <div class="card" id="c" onclick="flipCard()">
+        <div id="card-emoji" class="card-emoji">👶</div>
+        <div id="card-text" class="card-title">baby</div>
+    </div>
+    <div class="flip-hint">לחצי/י על הכרטיסייה כדי להפוך 🔄</div>
 </div>
 
 <!-- Footer Navigation Section -->
 <div class="footer-container">
-<div class="main-nav">
-<button class="btn-nav" onclick="changeCard(-1)">➡️ קודם</button>
-<button class="btn-audio" onclick="speak()" title="הקרא מילה">🔊</button>
-<button class="btn-nav" onclick="changeCard(1)">הבא ⬅️</button>
-</div>
-<div id="cnt">1 / 26</div>
+    <div class="main-nav">
+        <button class="btn-nav" onclick="changeCard(-1)">➡️ קודם</button>
+        <button class="btn-audio" onclick="speak()" title="הקרא מילה">🔊</button>
+        <button class="btn-nav" onclick="changeCard(1)">הבא ⬅️</button>
+    </div>
+    <div id="cnt">1 / 32</div>
 </div>
 
 <div id="confetti-wrapper"></div>
 
 <script>
 const allWords = [
+/* מילים חדשות (18 מילים) */
 {e:"baby", h:"תינוק", icon:"👶", isNew:true},
 {e:"box", h:"קופסא", icon:"📦", isNew:true},
 {e:"bag", h:"תיק", icon:"🎒", isNew:true},
@@ -349,6 +350,14 @@ const allWords = [
 {e:"sister", h:"אחות", icon:"👧", isNew:true},
 {e:"mouth", h:"פה", icon:"👄", isNew:true},
 {e:"brother", h:"אח", icon:"👦", isNew:true},
+{e:"grandma", h:"סבתא", icon:"👵", isNew:true},
+{e:"grandpa", h:"סבא", icon:"👴", isNew:true},
+{e:"gray", h:"אפור", icon:"🔘", isNew:true},
+{e:"door", h:"דלת", icon:"🚪", isNew:true},
+{e:"gift", h:"מתנה", icon:"🎁", isNew:true},
+{e:"house", h:"בית", icon:"🏠", isNew:true},
+
+/* מילים שתורגלו בעבר (14 מילים) */
 {e:"eleven", h:"אחת עשרה", icon:"1️⃣1️⃣", isNew:false},
 {e:"twelve", h:"שתים עשרה", icon:"1️⃣2️⃣", isNew:false},
 {e:"boy", h:"ילד", icon:"👦", isNew:false},
