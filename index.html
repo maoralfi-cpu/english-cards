@@ -304,7 +304,7 @@ z-index: 1000;
     <!-- Row 1: List Selector -->
     <div class="list-selector">
         <button class="list-btn active" id="btn-list-all" onclick="setListType('all')">📚 הכל (32)</button>
-        <button class="list-btn" id="btn-list-new" onclick="setListType('new')">✨ חדשות (18)</button>
+        <button class="list-btn" id="btn-list-new" onclick="setListType('new')">✨ חדשות (6)</button>
     </div>
 
     <!-- Row 2: Action Controls -->
@@ -317,8 +317,8 @@ z-index: 1000;
 <!-- Focused Card Section -->
 <div class="card-container">
     <div class="card" id="c" onclick="flipCard()">
-        <div id="card-emoji" class="card-emoji">👶</div>
-        <div id="card-text" class="card-title">baby</div>
+        <div id="card-emoji" class="card-emoji">👵</div>
+        <div id="card-text" class="card-title">grandma</div>
     </div>
     <div class="flip-hint">לחצי/י על הכרטיסייה כדי להפוך 🔄</div>
 </div>
@@ -337,19 +337,7 @@ z-index: 1000;
 
 <script>
 const allWords = [
-/* מילים חדשות (18 מילים) */
-{e:"baby", h:"תינוק", icon:"👶", isNew:true},
-{e:"box", h:"קופסא", icon:"📦", isNew:true},
-{e:"bag", h:"תיק", icon:"🎒", isNew:true},
-{e:"big", h:"גדול", icon:"🐘", isNew:true},
-{e:"book", h:"ספר", icon:"📖", isNew:true},
-{e:"small", h:"קטן", icon:"🐭", isNew:true},
-{e:"notebook", h:"מחברת", icon:"📓", isNew:true},
-{e:"computer", h:"מחשב", icon:"💻", isNew:true},
-{e:"nose", h:"אף", icon:"👃", isNew:true},
-{e:"sister", h:"אחות", icon:"👧", isNew:true},
-{e:"mouth", h:"פה", icon:"👄", isNew:true},
-{e:"brother", h:"אח", icon:"👦", isNew:true},
+/* 6 מילים חדשות שהוספו היום */
 {e:"grandma", h:"סבתא", icon:"👵", isNew:true},
 {e:"grandpa", h:"סבא", icon:"👴", isNew:true},
 {e:"gray", h:"אפור", icon:"🔘", isNew:true},
@@ -357,7 +345,19 @@ const allWords = [
 {e:"gift", h:"מתנה", icon:"🎁", isNew:true},
 {e:"house", h:"בית", icon:"🏠", isNew:true},
 
-/* מילים שתורגלו בעבר (14 מילים) */
+/* 26 מילים ותיקות/כלליות */
+{e:"baby", h:"תינוק", icon:"👶", isNew:false},
+{e:"box", h:"קופסא", icon:"📦", isNew:false},
+{e:"bag", h:"תיק", icon:"🎒", isNew:false},
+{e:"big", h:"גדול", icon:"🐘", isNew:false},
+{e:"book", h:"ספר", icon:"📖", isNew:false},
+{e:"small", h:"קטן", icon:"🐭", isNew:false},
+{e:"notebook", h:"מחברת", icon:"📓", isNew:false},
+{e:"computer", h:"מחשב", icon:"💻", isNew:false},
+{e:"nose", h:"אף", icon:"👃", isNew:false},
+{e:"sister", h:"אחות", icon:"👧", isNew:false},
+{e:"mouth", h:"פה", icon:"👄", isNew:false},
+{e:"brother", h:"אח", icon:"👦", isNew:false},
 {e:"eleven", h:"אחת עשרה", icon:"1️⃣1️⃣", isNew:false},
 {e:"twelve", h:"שתים עשרה", icon:"1️⃣2️⃣", isNew:false},
 {e:"boy", h:"ילד", icon:"👦", isNew:false},
