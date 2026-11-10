@@ -171,6 +171,10 @@ text-align: center;
 font-size: 65px;
 line-height: 1;
 user-select: none;
+transition: opacity 0.2s;
+}
+.card-emoji.hidden {
+display: none;
 }
 
 .flip-hint {
@@ -310,6 +314,7 @@ z-index: 1000;
     <!-- Row 2: Action Controls -->
     <div class="tools-row">
         <button class="btn-tool" id="toggle-mode-btn" onclick="toggleMode()">🇬🇧 🔄 🇮🇱 <span id="mode-label">אנגלית תחילה</span></button>
+        <button class="btn-tool" id="toggle-emoji-btn" onclick="toggleEmoji()">👁️ אימוג'י</button>
         <button class="btn-tool" onclick="shuffleWords()">🔀 ערבוב</button>
     </div>
 </div>
@@ -379,6 +384,7 @@ let currentIndex = 0;
 let wordsSeen = new Set();
 let isHebrewFirst = false;
 let isFlipped = false;
+let showEmoji = true;
 
 function setListType(type) {
 document.getElementById('btn-list-all').classList.toggle('active', type === 'all');
@@ -413,6 +419,24 @@ label.innerText = 'אנגלית תחילה';
 updateDisplay();
 }
 
+function toggleEmoji() {
+showEmoji = !showEmoji;
+const btn = document.getElementById('toggle-emoji-btn');
+const emojiEl = document.getElementById('card-emoji');
+
+if (showEmoji) {
+btn.innerText = "👁️ אימוג'י";
+btn.style.background = "white";
+btn.style.color = "var(--text)";
+emojiEl.classList.remove('hidden');
+} else {
+btn.innerText = "🙈 ללא אימוג'י";
+btn.style.background = "#f39c12";
+btn.style.color = "white";
+emojiEl.classList.add('hidden');
+}
+}
+
 function flipCard() {
 isFlipped = !isFlipped;
 renderCardContent();
@@ -425,6 +449,12 @@ const emojiEl = document.getElementById('card-emoji');
 const currentWord = activeWords[currentIndex];
 
 emojiEl.innerText = currentWord.icon;
+if (showEmoji) {
+emojiEl.classList.remove('hidden');
+} else {
+emojiEl.classList.add('hidden');
+}
+
 const showHebrew = (isHebrewFirst && !isFlipped) || (!isHebrewFirst && isFlipped);
 
 if (showHebrew) {
