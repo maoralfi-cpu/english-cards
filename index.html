@@ -314,7 +314,7 @@ z-index: 1000;
     <!-- Row 2: Action Controls -->
     <div class="tools-row">
         <button class="btn-tool" id="toggle-mode-btn" onclick="toggleMode()">🇬🇧 🔄 🇮🇱 <span id="mode-label">אנגלית תחילה</span></button>
-        <button class="btn-tool" id="toggle-emoji-btn" onclick="toggleEmoji()">👁️ אימוג'י</button>
+        <button class="btn-tool" id="toggle-emoji-btn" onclick="toggleEmoji()" style="background:#f39c12;color:white">🙈 ללא אימוג'י</button>
         <button class="btn-tool" onclick="shuffleWords()">🔀 ערבוב</button>
     </div>
 </div>
@@ -322,7 +322,7 @@ z-index: 1000;
 <!-- Focused Card Section -->
 <div class="card-container">
     <div class="card" id="c" onclick="flipCard()">
-        <div id="card-emoji" class="card-emoji">👵</div>
+        <div id="card-emoji" class="card-emoji hidden">👵</div>
         <div id="card-text" class="card-title">grandma</div>
     </div>
     <div class="flip-hint">לחצי/י על הכרטיסייה כדי להפוך 🔄</div>
@@ -384,7 +384,7 @@ let currentIndex = 0;
 let wordsSeen = new Set();
 let isHebrewFirst = false;
 let isFlipped = false;
-let showEmoji = true;
+let showEmoji = false;
 
 function setListType(type) {
 document.getElementById('btn-list-all').classList.toggle('active', type === 'all');
