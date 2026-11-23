@@ -307,8 +307,8 @@ z-index: 1000;
     
     <!-- Row 1: List Selector -->
     <div class="list-selector">
-        <button class="list-btn active" id="btn-list-all" onclick="setListType('all')">📚 הכל (32)</button>
-        <button class="list-btn" id="btn-list-new" onclick="setListType('new')">✨ חדשות (6)</button>
+        <button class="list-btn active" id="btn-list-all" onclick="setListType('all')">📚 הכל (<span id="n-all"></span>)</button>
+        <button class="list-btn" id="btn-list-new" onclick="setListType('new')">✨ חדשות (<span id="n-new"></span>)</button>
     </div>
 
     <!-- Row 2: Action Controls -->
@@ -339,18 +339,27 @@ z-index: 1000;
 </div>
 
 <div id="confetti-wrapper"></div>
+<div id="app-ver" style="position:fixed;bottom:4px;left:6px;font-size:10px;color:#999;opacity:.7;pointer-events:none">v1.4</div>
 
 <script>
 const allWords = [
-/* 6 מילים חדשות שהוספו היום */
-{e:"grandma", h:"סבתא", icon:"👵", isNew:true},
-{e:"grandpa", h:"סבא", icon:"👴", isNew:true},
-{e:"gray", h:"אפור", icon:"🔘", isNew:true},
-{e:"door", h:"דלת", icon:"🚪", isNew:true},
-{e:"gift", h:"מתנה", icon:"🎁", isNew:true},
-{e:"house", h:"בית", icon:"🏠", isNew:true},
+/* 8 מילים חדשות (23.11.2026) */
+{e:"elephant", h:"פיל", icon:"🐘", isNew:true},
+{e:"pencil", h:"עיפרון", icon:"✏️", isNew:true},
+{e:"egg", h:"ביצה", icon:"🥚", isNew:true},
+{e:"bed", h:"מיטה", icon:"🛏️", isNew:true},
+{e:"eraser", h:"מחק", icon:"🧽", isNew:true},
+{e:"table", h:"שולחן", icon:"🍽️", isNew:true},
+{e:"school", h:"בית ספר", icon:"🏫", isNew:true},
+{e:"Let's go (to) ...", h:"בוא נלך (אל/ל...)", icon:"🚶", isNew:true, say:"Let's go to"},
 
-/* 26 מילים ותיקות/כלליות */
+/* מילים ותיקות/כלליות */
+{e:"grandma", h:"סבתא", icon:"👵", isNew:false},
+{e:"grandpa", h:"סבא", icon:"👴", isNew:false},
+{e:"gray", h:"אפור", icon:"🔘", isNew:false},
+{e:"door", h:"דלת", icon:"🚪", isNew:false},
+{e:"gift", h:"מתנה", icon:"🎁", isNew:false},
+{e:"house", h:"בית", icon:"🏠", isNew:false},
 {e:"baby", h:"תינוק", icon:"👶", isNew:false},
 {e:"box", h:"קופסא", icon:"📦", isNew:false},
 {e:"bag", h:"תיק", icon:"🎒", isNew:false},
@@ -459,9 +468,11 @@ const showHebrew = (isHebrewFirst && !isFlipped) || (!isHebrewFirst && isFlipped
 
 if (showHebrew) {
 textEl.innerText = currentWord.h;
+textEl.dir = 'rtl';
 card.classList.add('is-back');
 } else {
 textEl.innerText = currentWord.e;
+textEl.dir = 'ltr';
 card.classList.remove('is-back');
 }
 }
@@ -530,7 +541,7 @@ updateDisplay();
 function speak() {
 if ('speechSynthesis' in window) {
 window.speechSynthesis.cancel();
-const wordToSpeak = activeWords[currentIndex].e;
+const wordToSpeak = activeWords[currentIndex].say || activeWords[currentIndex].e;
 const msg = new SpeechSynthesisUtterance(wordToSpeak);
 msg.lang = 'en-US';
 msg.rate = 0.85;
@@ -556,6 +567,10 @@ setTimeout(stopCelebrate, 7000);
 function stopCelebrate() {
 document.getElementById('confetti-wrapper').innerHTML = '';
 }
+// אתחול: מספרים בכפתורים והכרטיסייה הראשונה מתוך הרשימה
+document.getElementById('n-all').innerText = allWords.length;
+document.getElementById('n-new').innerText = allWords.filter(w => w.isNew).length;
+updateDisplay();
 </script>
 </body>
 </html>
